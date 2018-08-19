@@ -1,20 +1,18 @@
 package com.edu.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class User {
+public class Bank {
   
-  @Autowired
   private ApplicationContext applicationContext;
   
-  public void init() {
-    System.out.println("user init");
+  public Bank(ApplicationContext applicationContext) {
+    this.applicationContext = applicationContext;
   }
   
   public void show() {
-    System.out.println("in show, user: " + applicationContext.getClass());
+    System.out.println("in show, bank: " + applicationContext.getClass());
   }
 }
