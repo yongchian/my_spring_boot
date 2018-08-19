@@ -12,8 +12,6 @@ public class App {
     //System.out.println(context.getBean("createUser"));
     //System.out.println(context.getBean(User.class));
     context.getBean("user", User.class).show();
-    context.getBean("book", Book.class).show();
-    context.getBean("bank", Bank.class).show();
     context.close();
   }
 }
