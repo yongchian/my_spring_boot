@@ -1,0 +1,19 @@
+package com.edu.spring;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+  public static void main(String[] args) {
+    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.edu.spring");
+    //System.out.println(context.getBean("createUser"));
+    //System.out.println(context.getBean(User.class));
+    context.getBean("user", User.class).show();
+    context.getBean("book", Book.class).show();
+    context.getBean("bank", Bank.class).show();
+    context.close();
+  }
+}
