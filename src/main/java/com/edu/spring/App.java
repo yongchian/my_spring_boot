@@ -11,7 +11,8 @@ public class App {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.edu.spring");
     //System.out.println(context.getBean("createUser"));
     //System.out.println(context.getBean(User.class));
-    context.getBean("user", User.class).show();
+    //context.getBean("user", User.class).show();
+    context.getBeansOfType(Person.class).values().forEach(System.out::println);
     context.close();
   }
 }
