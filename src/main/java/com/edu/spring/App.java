@@ -1,15 +1,20 @@
 package com.edu.spring;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * Hello world!
  *
  */
+@SpringBootApplication
 public class App {
+  //--spring.config.name=app
   public static void main(String[] args) {
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.edu.spring");
-    context.getEnvironment().getProperty("local.ip");
+    ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
+    System.out.println(context.getEnvironment().getProperty("local.ip"));
+    context.getBean(UserConfig.class).show();
     context.close();
   }
 }
