@@ -1,17 +1,21 @@
 package com.edu.spring;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * Hello world!
  *
  */
+@SpringBootApplication
 public class App {
   public static void main(String[] args) {
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.edu.spring");
-    //System.out.println(context.getBean("createUser"));
-    //System.out.println(context.getBean(User.class));
-    context.getBean("user", User.class).show();
+    ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
+    
+    System.out.println(context.getBeansOfType(EncodingConvert.class));
+    System.out.println(context.getBeansOfType(Runnable.class));
     context.close();
+    
   }
 }
