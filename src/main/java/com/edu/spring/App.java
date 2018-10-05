@@ -12,7 +12,7 @@ public class App {
     context.publishEvent(new MyApplicationEvent(new Object()));
     
     //app.addListeners(new MyApplicationListener());
-    
+    context.stop();
     context.close();
   }
 }
