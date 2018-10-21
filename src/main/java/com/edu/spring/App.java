@@ -10,11 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.edu.spring.dao.UserDao;
+
 @SpringBootApplication
-@EnableTransactionManagement
 public class App {
   public static void main(String[] args) throws BeansException, FileNotFoundException {
     ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
-    context.getBean(ProductDao.class).addProductBatch("test1", "test2", "test3");
+    context.getBean(UserDao.class).add("admin", "123");
+    context.close();
   }
 }
